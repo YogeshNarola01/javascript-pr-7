@@ -1,0 +1,75 @@
+<!-- 2. Write a JavaScript program that creates a class called "BankAccount" with properties for account number and balance. Include methods to deposit and withdraw money from the account.
+Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
+
+output :- 
+A/c No.: 212121212
+Opening Balance: 1500
+ Deposited: 500
+Withdrawn: 400
+Account Balance: 1600
+Want to withdrawn: 1800
+Insufficient balance" 
+Account Balance: 1600 -->
+
+<html>
+<script>
+
+    class BankAccount {
+        constructor(acn, acp, acb) {
+            this.acn = acn;
+            this.acp = acp;
+            this.acb = acb;
+            console.log(`Your Bankaccount Number is : ${this.acn}`);
+            console.log(`Your Bankaccount Sicurity Pin is : ${this.acp}`);
+            console.log(`Your Opening Balance is : ${this.acb}`);
+        }
+
+        diposit() {
+            let amo = parseInt(prompt("Enter Your Diposite Amount : "));
+            this.acb += amo;
+            console.log(`Your Diposited Amount is : ${amo}`);
+            console.log(`Your Acount Balance is : ${this.acb}`);
+            alert(`Your Amount Diposited Succusesfuly...`);
+        }
+
+        withdrawn() {
+            let no = parseInt(prompt("Enter Your Bankaccount Number : "));
+            let pin = parseInt(prompt("Enter Your Sicurity Pin : "));
+            if (this.acn == no && this.acp == pin) {
+                let amod = parseInt(prompt("Enter Your Withdrawn Amount : "));
+                if (this.acb > amod) {
+                    this.acb -= amod;
+                    console.log(`Your Withdrawn Amount is : ${amod}`);
+                    console.log(`Your Acount Balance is : ${this.acb}`);
+                    alert(`Your Amount Withdrawn Succusesfuly...`);
+                }else{
+                    alert(`Your Withdrawn Amount is Higher Then Available Account Balance...`);
+                }
+            } else {
+                alert(`Your Account Number And Password Are Not Mach..... Plize Try Again...!`);
+            }
+        }
+
+        curentbalance(){
+            let no = parseInt(prompt("Enter Your Bankaccount Number : "));
+            let pin = parseInt(prompt("Enter Your Sicurity Pin : "));
+            if(this.acn == no && this.acp == pin){
+            console.log(`Your Available Balance is : ${this.acb}`);
+            }else{
+                alert(`Your Account Number And Password Are Not Mach..... Plize Try Again...!`);
+            }
+        }
+
+    }
+
+    let acn = prompt("Enter Your Bank Account Number : ");
+    let acp = prompt("Enter Your Sicurity Pin : ");
+    let acb = parseInt(prompt("Enter Your Opening Balance : "));
+
+    let obj = new BankAccount(acn, acp, acb);
+    obj.diposit();
+    obj.withdrawn();
+    obj.curentbalance();
+</script>
+
+</html>
